@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/storage/fonts/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/storage/fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/storage/fonts/Montserrat-Medium.ttf');
+}
+
+@layer base {
+  html {
+    font-family: 'Poppins', 'Roboto', 'Montserrat', sans-serif;
+  }
+}
+
+@layer components {
+    .clickable {
+      @apply cursor-pointer active:scale-110;
+    }
+
+    .btn {
+      @apply inline-block px-6 py-2.5 font-medium text-xs leading-tight uppercase rounded shadow-md enabled:hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out disabled:cursor-not-allowed;
+    }
+
+    .badge {
+      @apply text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-middle text-white rounded
+    }
+  }
