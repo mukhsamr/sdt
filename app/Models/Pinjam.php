@@ -40,7 +40,8 @@ class Pinjam extends Model
         return Attribute::make(
             get: function () {
 
-                $limit = $this->created_at->addHours(2);
+                $waktu_pinjam = env('WAKTU_PINJAM', 3);
+                $limit = $this->created_at->addHours($waktu_pinjam);
 
                 // Jika belum dikembalikan
                 if (!$this->deleted_at) {
