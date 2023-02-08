@@ -27,8 +27,11 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
+        $data = $request->input();
+        $data['password'] = bcrypt($data['password']);
+
         $alert = $this::execute(
-            try: fn () => User::create($request->input()),
+            try: fn () => User::create($data),
             message: 'tambah user'
         );
 

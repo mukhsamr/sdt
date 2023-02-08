@@ -8,11 +8,10 @@ const form = useForm({
     nama: '',
     email: '',
     password: '',
-    level: '',
+    level: 'user',
 })
 
 function tambah() {
-    form.level = 'user'
     form.post(route('user.store'), {
         onSuccess: () => {
             useToast()
@@ -32,6 +31,10 @@ function tambah() {
                 <Input type="email" label="Email" v-model="form.email" required />
                 <span class="text-sm text-red-400">{{ $page.props.errors.email }}</span>
                 <Input type="password" label="Password" v-model="form.password" required />
+                <Select label="Level" v-model="form.level" required>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </Select>
 
                 <Button color="success" type="submit" :disabled="!form.isDirty">Simpan</Button>
             </form>
