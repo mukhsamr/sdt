@@ -9,7 +9,7 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            'uid' => fake()->uuid(),
+            'uid' => fake()->randomNumber(9, true),
             'nama' => fake()->name(),
             'tipe' => fake()->randomElement(['fq', 'qbs']),
         ];

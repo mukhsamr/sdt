@@ -2,14 +2,14 @@
 import Layout from '@/Layouts/Layout.vue';
 import { useToast, useConfirm } from "@/Composables";
 import { Table, Th, Td, Badge, Input, Button, BtnIcon } from "@/Components";
-import { LockClosedIcon, PencilSquareIcon as Pen, SquaresPlusIcon, TrashIcon } from '@heroicons/vue/24/outline';
+import { LockClosedIcon, PencilSquareIcon as Pen, SquaresPlusIcon, PlusIcon, TrashIcon } from '@heroicons/vue/24/outline';
 import { useSessionStore } from "@/Stores/Session";
 import { Link } from '@inertiajs/inertia-vue3'
 import { Inertia } from '@inertiajs/inertia';
 import { ref, watch } from 'vue';
 import { debounce } from "lodash";
 
-
+const mobile = ref(screen.width < 1024)
 const user = useSessionStore().user
 
 const props = defineProps({
@@ -61,14 +61,16 @@ async function block(item) {
 
 <template>
     <Layout judul="Daftar Siswa">
-        <div class="flex space-x-8">
+        <div class="flex space-x-4">
             <Input placeholder="cari uid / nama" autofocus v-model="search" />
             <div class="flex space-x-2">
                 <Button color="success" @click="$inertia.get(route('siswa.create'))">
-                    <span class="hidden md:inline ml-2">Tambah Siswa</span>
+                    <PlusIcon class="w-4 h-4" />
+                    <span class="hidden md:inline ml-2" v-if="!mobile">Tambah Siswa</span>
                 </Button>
                 <Button color="dark" @click="$inertia.get(route('siswa.disable'))">
-                    <span class="hidden md:inline ml-2">Siswa Blokir</span>
+                    <LockClosedIcon class="w-4 h-4" />
+                    <span class="hidden md:inline ml-2" v-if="!mobile">Siswa Blokir</span>
                 </Button>
             </div>
         </div>

@@ -20,8 +20,13 @@ class DeviceController extends Controller
                 'student' => fn ($query) => $query->select('id', 'nama')->withoutGlobalScopes(),
                 'rak'
             ])
-                ->where('uid', 'like', "%$request->cari%")
-                ->orWhere('jenis', 'like', "%$request->cari%")
+                ->has('student')
+                ->where(
+                    fn ($query) => $query
+                        ->where('uid', 'like', "%$request->cari%")
+                        ->orWhere('jenis', 'like', "%$request->cari%")
+                )
+                ->orWhereNull('student_id')
                 ->orderBy('rak_id')
                 ->limit(20)
                 ->get()

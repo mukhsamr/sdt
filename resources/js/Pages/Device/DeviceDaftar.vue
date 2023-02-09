@@ -1,7 +1,7 @@
 <script setup>
 import Layout from '@/Layouts/Layout.vue';
 import { Table, Th, Td, Input, Button } from "@/Components";
-import { PencilSquareIcon as Pen, TrashIcon } from '@heroicons/vue/24/outline';
+import { PencilSquareIcon as Pen, TrashIcon, PlusIcon } from '@heroicons/vue/24/outline';
 import { Link } from '@inertiajs/inertia-vue3'
 import { Inertia } from '@inertiajs/inertia';
 import { useToast, useConfirm } from "@/Composables";
@@ -46,9 +46,10 @@ async function hapus(item) {
 
 <template>
     <Layout judul="Daftar Device">
-        <div class="flex space-x-8">
+        <div class="flex space-x-4">
             <Input class="grow" placeholder="cari uid / jenis" autofocus v-model="search" />
             <Button color="success" @click="$inertia.get(route('device.create'))">
+                <PlusIcon class="w-4 h-4" />
                 <span class="hidden md:inline ml-2">Tambah device</span>
             </Button>
         </div>

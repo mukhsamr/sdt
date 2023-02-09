@@ -2,7 +2,7 @@
 import Layout from "@/Layouts/Layout.vue";
 import { Table, Th, Td, Input, Button } from "@/Components";
 import { useToast, useConfirm } from "@/Composables";
-import { TrashIcon, PencilSquareIcon as Pen } from "@heroicons/vue/24/outline";
+import { TrashIcon, PencilSquareIcon as Pen, PlusIcon } from "@heroicons/vue/24/outline";
 import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import { ref, watch } from "vue";
@@ -44,9 +44,10 @@ async function hapus(item) {
 
 <template>
     <Layout judul="User">
-        <div class="flex space-x-8">
+        <div class="flex space-x-4">
             <Input placeholder="cari user" autofocus v-model="search" />
             <Button color="success" @click="$inertia.get(route('user.create'))">
+                <PlusIcon class="h-4 w-4" />
                 <span class="hidden md:inline ml-2">Tambah User</span>
             </Button>
         </div>

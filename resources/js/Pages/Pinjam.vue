@@ -120,7 +120,7 @@ function submitDevice() {
 
 <template>
     <Layout judul="Peminjaman">
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="rounded-lg border shadow-md p-6">
                 <h2 class="text-2xl">Santri</h2>
                 <hr class="my-2">

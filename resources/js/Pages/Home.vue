@@ -22,7 +22,7 @@ defineProps({
 
         <hr class="my-2">
 
-        <div class="grid grid-cols-2 gap-4 mt-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <div>
                 <span class="text-yellow-600">{{ pinjam.length }} Siswa</span>
                 <Table :items="pinjam">
