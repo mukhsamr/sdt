@@ -3,8 +3,11 @@ import Layout from "@/Layouts/Layout.vue";
 import { useToast, useConfirm } from "@/Composables";
 import { Table, Th, Td, BtnIcon, Button, Input } from "@/Components";
 import { useForm } from "@inertiajs/inertia-vue3";
-import { TrashIcon, PencilSquareIcon as Pen, SquaresPlusIcon } from "@heroicons/vue/24/outline";
+import { TrashIcon, PencilSquareIcon as Pen, SquaresPlusIcon, PlusIcon } from "@heroicons/vue/24/outline";
 import { Inertia } from "@inertiajs/inertia";
+import { ref } from "vue";
+
+const mobile = ref(screen.width < 1024)
 
 defineProps({
     daftar: {
@@ -63,7 +66,10 @@ async function hapus(item) {
 
 <template>
     <Layout judul="Rak">
-        <Button color="success" class="mb-2" data-bs-toggle="modal" data-bs-target="#tambah">Tambah Rak</Button>
+        <Button color="success" class="mb-2" data-bs-toggle="modal" data-bs-target="#tambah">
+            <PlusIcon class="w-4 h-4 md:hidden" />
+            <span class="hidden md:inline">Tambah Rak</span>
+        </Button>
         <Table :items="daftar">
             <template #head>
                 <Th>Rak</Th>

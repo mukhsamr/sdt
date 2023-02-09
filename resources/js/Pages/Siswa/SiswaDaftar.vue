@@ -65,12 +65,12 @@ async function block(item) {
             <Input placeholder="cari uid / nama" autofocus v-model="search" />
             <div class="flex space-x-2">
                 <Button color="success" @click="$inertia.get(route('siswa.create'))">
-                    <PlusIcon class="w-4 h-4" />
-                    <span class="hidden md:inline ml-2" v-if="!mobile">Tambah Siswa</span>
+                    <PlusIcon class="w-4 h-4 md:hidden" />
+                    <span class="hidden md:inline">Tambah Siswa</span>
                 </Button>
                 <Button color="dark" @click="$inertia.get(route('siswa.disable'))">
-                    <LockClosedIcon class="w-4 h-4" />
-                    <span class="hidden md:inline ml-2" v-if="!mobile">Siswa Blokir</span>
+                    <LockClosedIcon class="w-4 h-4 md:hidden" />
+                    <span class="hidden md:inline">Siswa Blokir</span>
                 </Button>
             </div>
         </div>

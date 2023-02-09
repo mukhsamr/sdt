@@ -8,6 +8,8 @@ import { useToast, useConfirm } from "@/Composables";
 import { ref, watch } from 'vue';
 import { debounce } from "lodash";
 
+const mobile = ref(screen.width < 1024)
+
 const props = defineProps({
     daftar: {
         type: Array,
@@ -49,8 +51,8 @@ async function hapus(item) {
         <div class="flex space-x-4">
             <Input class="grow" placeholder="cari uid / jenis" autofocus v-model="search" />
             <Button color="success" @click="$inertia.get(route('device.create'))">
-                <PlusIcon class="w-4 h-4" />
-                <span class="hidden md:inline ml-2">Tambah device</span>
+                <PlusIcon class="w-4 h-4 md:hidden" />
+                <span class="hidden md:inline">Tambah device</span>
             </Button>
         </div>
 

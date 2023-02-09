@@ -45,6 +45,8 @@ function filter(item = null) {
         rak: form.rak,
         status: form.status,
         cari: item ?? props.cari,
+    }, {
+        preserveState: false
     })
 }
 
