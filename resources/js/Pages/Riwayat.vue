@@ -7,7 +7,6 @@ import { Table, Th, Td, Input, Badge, Button, Select } from "@/Components";
 import { CheckCircleIcon, FunnelIcon } from "@heroicons/vue/24/outline";
 import { useForm } from "@inertiajs/inertia-vue3";
 
-const mobile = ref(screen.width < 1024)
 const now = (new Date()).toISOString().split('T')[0]
 
 const props = defineProps({
@@ -57,8 +56,8 @@ function filter(item = null) {
         <div class="flex space-x-6">
             <Input placeholder="cari santri" autofocus v-model="search" />
             <Button color="warning" data-bs-toggle="modal" data-bs-target="#filter">
-                <FunnelIcon class="w-4 h-4 inline" />
-                <span class="ml-2" v-if="!mobile">Filter</span>
+                <FunnelIcon class="w-4 h-4 md:hidden" />
+                <span class="hidden md:inline">Filter</span>
             </Button>
         </div>
 

@@ -8,8 +8,6 @@ import { useToast, useConfirm } from "@/Composables";
 import { ref, watch } from 'vue';
 import { debounce } from "lodash";
 
-const mobile = ref(screen.width < 1024)
-
 const props = defineProps({
     daftar: {
         type: Array,

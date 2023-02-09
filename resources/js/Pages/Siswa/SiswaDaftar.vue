@@ -9,7 +9,6 @@ import { Inertia } from '@inertiajs/inertia';
 import { ref, watch } from 'vue';
 import { debounce } from "lodash";
 
-const mobile = ref(screen.width < 1024)
 const user = useSessionStore().user
 
 const props = defineProps({

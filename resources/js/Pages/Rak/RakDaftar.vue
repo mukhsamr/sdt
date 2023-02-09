@@ -5,9 +5,6 @@ import { Table, Th, Td, BtnIcon, Button, Input } from "@/Components";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { TrashIcon, PencilSquareIcon as Pen, SquaresPlusIcon, PlusIcon } from "@heroicons/vue/24/outline";
 import { Inertia } from "@inertiajs/inertia";
-import { ref } from "vue";
-
-const mobile = ref(screen.width < 1024)
 
 defineProps({
     daftar: {

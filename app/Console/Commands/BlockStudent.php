@@ -15,11 +15,6 @@ class BlockStudent extends Command
 
     protected $description = 'Block student';
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     public function handle()
     {
         try {
