@@ -10,9 +10,22 @@ class RakSeeder extends Seeder
     public function run()
     {
         Rak::insert([
-            ['rak' => 'k'],
-            ['rak' => 'l'],
-            ['rak' => 'm'],
+            [
+                'rak' => 'k',
+                'tipe' => 'fq',
+            ],
+            [
+                'rak' => 'l',
+                'tipe' => 'fq',
+            ],
+            [
+                'rak' => 'm',
+                'tipe' => 'qbs',
+            ],
+            [
+                'rak' => 'n',
+                'tipe' => 'qbs',
+            ],
         ]);
     }
 }

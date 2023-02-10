@@ -32,7 +32,7 @@ defineExpose({
         <div class="inset-0 fixed bg-black/30 z-10 lg:hidden" :class="{ 'hidden': isHide }" @click="toggle()" />
     </Teleport>
 
-    <div class="shadow-md bg-white transition ease-in-out z-20 h-screen absolute lg:static"
+    <div class="shadow-md bg-white transition ease-in-out z-20 h-full fixed md:h-screen md:sticky-top"
         :class="{ '-translate-x-full': isHide }" v-bind="$attrs">
 
         <!-- Avatar -->

@@ -20,13 +20,8 @@ class DeviceController extends Controller
                 'student' => fn ($query) => $query->select('id', 'nama')->withoutGlobalScopes(),
                 'rak'
             ])
-                ->has('student')
-                ->where(
-                    fn ($query) => $query
-                        ->where('uid', 'like', "%$request->cari%")
-                        ->orWhere('jenis', 'like', "%$request->cari%")
-                )
-                ->orWhereNull('student_id')
+                ->where('uid', 'like', "%$request->cari%")
+                ->orWhere('jenis', 'like', "%$request->cari%")
                 ->orderBy('rak_id')
                 ->limit(20)
                 ->get()
@@ -37,14 +32,14 @@ class DeviceController extends Controller
     {
         return Inertia::render('Device/DeviceEdit', [
             'device' => $device->load('rak'),
-            'raks' => Rak::all()
+            'raks' => Rak::where('tipe', session('tipe'))->get()
         ]);
     }
 
     public function create()
     {
         return Inertia::render('Device/DeviceTambah', [
-            'raks' => Rak::all()
+            'raks' => Rak::where('tipe', session('tipe'))->get()
         ]);
     }
 

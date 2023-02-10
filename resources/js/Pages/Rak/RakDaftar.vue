@@ -1,7 +1,7 @@
 <script setup>
 import Layout from "@/Layouts/Layout.vue";
 import { useToast, useConfirm } from "@/Composables";
-import { Table, Th, Td, BtnIcon, Button, Input } from "@/Components";
+import { Table, Th, Td, BtnIcon, Button, Input, Badge, Select } from "@/Components";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { TrashIcon, PencilSquareIcon as Pen, SquaresPlusIcon, PlusIcon } from "@heroicons/vue/24/outline";
 import { Inertia } from "@inertiajs/inertia";
@@ -15,16 +15,19 @@ defineProps({
 
 const formTambah = useForm({
     rak: null,
+    tipe: null,
 })
 
 const formEdit = useForm({
     id: null,
     rak: null,
+    tipe: null,
 })
 
 function modalEdit(item) {
     formEdit.id = item.id
     formEdit.rak = item.rak
+    formEdit.tipe = item.tipe
 }
 
 function store() {
@@ -70,12 +73,17 @@ async function hapus(item) {
         <Table :items="daftar">
             <template #head>
                 <Th>Rak</Th>
+                <Th>Tipe</Th>
                 <Th>Jumlah Device</Th>
                 <Th>Assigne</Th>
                 <Th>Aksi</Th>
             </template>
             <template #body="{ item }">
                 <Td>{{ item.rak }}</Td>
+                <Td>
+                    <Badge class="uppercase" color="secondary" v-if="item.tipe == 'fq'">{{ item.tipe }}</Badge>
+                    <Badge class="uppercase" color="orange" v-else>{{ item.tipe }}</Badge>
+                </Td>
                 <Td>{{ item.device_count }}</Td>
                 <Td>
                     <BtnIcon :icon="SquaresPlusIcon" class="text-purple-600"
@@ -109,8 +117,12 @@ async function hapus(item) {
                                 class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                                 data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body relative p-4">
+                        <div class="modal-body relative p-4 space-y-3">
                             <Input label="Nama rak" required v-model="formEdit.rak" />
+                            <Select label="Tipe" required v-model="formEdit.tipe">
+                                <option value="fq">FQ</option>
+                                <option value="qbs">QBS</option>
+                            </Select>
                         </div>
                         <div
                             class="modal-footer flex flex-shrink-0 space-x-2 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
@@ -140,8 +152,12 @@ async function hapus(item) {
                                 class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                                 data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body relative p-4">
+                        <div class="modal-body relative p-4 space-y-3">
                             <Input label="Nama rak" required v-model="formTambah.rak" />
+                            <Select label="Tipe" required v-model="formTambah.tipe">
+                                <option value="fq">FQ</option>
+                                <option value="qbs">QBS</option>
+                            </Select>
                         </div>
                         <div
                             class="modal-footer flex flex-shrink-0 space-x-2 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">

@@ -7,7 +7,6 @@ use App\Http\Controllers\PinjamController;
 use App\Http\Controllers\RakController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 // Home

@@ -29,4 +29,11 @@ trait HasTimeStamp
             get: fn () => $this->deleted_at?->format('H:i:s'),
         );
     }
+
+    protected function tanggal(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->created_at?->format('d M y'),
+        );
+    }
 }

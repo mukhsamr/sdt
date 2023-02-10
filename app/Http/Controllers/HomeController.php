@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pinjam;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class HomeController extends Controller
@@ -23,6 +22,13 @@ class HomeController extends Controller
                 ->whereDate('created_at', date('Y-m-d'))
                 ->onlyTrashed()
                 ->get(),
+            'sedang_dipinjam' => Pinjam::has('student')
+                ->select('id', 'student_id', 'device_id', 'created_at')
+                ->with(['student:id,nama', 'device:id,jenis'])
+                ->orderBy('created_at')
+                ->get()
+                ->each
+                ->append('tanggal')
         ]);
     }
 }

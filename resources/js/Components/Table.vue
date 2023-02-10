@@ -13,7 +13,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="w-full max-h-screen lg:max-h-[30rem] overflow-auto shadow-lg">
+    <div class="w-full overflow-auto shadow-lg">
         <table class="min-w-full" :class="{ 'text-center': center, '[&_tr>*]:border': bordered }">
             <thead class="bg-slate-100">
                 <tr>
