@@ -20,7 +20,6 @@ class StudentController extends Controller
                 ->where('uid', 'like', "%$request->cari%")
                 ->orWhere('nama', 'like', "%$request->cari%")
                 ->orderBy('nama')
-                ->limit(20)
                 ->get(),
 
             'cari' => $request->cari

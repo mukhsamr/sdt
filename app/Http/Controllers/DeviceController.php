@@ -23,7 +23,6 @@ class DeviceController extends Controller
                 ->where('uid', 'like', "%$request->cari%")
                 ->orWhere('jenis', 'like', "%$request->cari%")
                 ->orderBy('rak_id')
-                ->limit(20)
                 ->get()
         ]);
     }

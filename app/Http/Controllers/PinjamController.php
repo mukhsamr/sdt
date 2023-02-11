@@ -36,7 +36,7 @@ class PinjamController extends Controller
                 ->has('student')
                 ->whereDate('created_at', now())
                 ->orderByDesc('id')
-                ->limit(4)
+                ->limit(10)
                 ->get()
         ]);
     }
@@ -49,7 +49,7 @@ class PinjamController extends Controller
                 ->withTrashed()
                 ->whereDate('created_at', now())
                 ->orderByDesc('id')
-                ->limit(6)
+                ->limit(10)
                 ->get()
                 ->each
                 ->append('status'),
