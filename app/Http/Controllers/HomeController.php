@@ -19,7 +19,7 @@ class HomeController extends Controller
             'kembali' => Pinjam::has('student')
                 ->select('id', 'student_id', 'device_id', 'deleted_at')
                 ->with(['student:id,nama', 'device:id,jenis'])
-                ->whereDate('created_at', date('Y-m-d'))
+                ->whereDate('deleted_at', date('Y-m-d'))
                 ->onlyTrashed()
                 ->get(),
             'sedang_dipinjam' => Pinjam::has('student')

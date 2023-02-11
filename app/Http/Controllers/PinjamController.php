@@ -47,7 +47,7 @@ class PinjamController extends Controller
             'daftar' => Pinjam::with(['student:id,nama', 'device:id,jenis', 'user:id,nama'])
                 ->has('student')
                 ->withTrashed()
-                ->whereDate('created_at', now())
+                ->whereDate('deleted_at', now())
                 ->orderByDesc('id')
                 ->limit(10)
                 ->get()

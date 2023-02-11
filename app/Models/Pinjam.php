@@ -17,6 +17,9 @@ class Pinjam extends Model
     protected $guarded = ['id'];
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected $appends = ['di_buat', 'di_edit', 'di_hapus'];
+    protected $casts = [
+        'dipinjam' => 'boolean'
+    ];
 
 
     public function student()
